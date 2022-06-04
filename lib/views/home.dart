@@ -33,7 +33,13 @@ class _HomeViewState extends State<HomeView> {
               return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (ctx, int i) {
-                    return Text(snapshot.data![i].title);
+                    return Card(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 6),
+                        child: Center(child: Text(snapshot.data![i].title)),
+                      ),
+                    );
                   });
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
